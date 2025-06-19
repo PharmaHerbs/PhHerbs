@@ -1,15 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PhHerbs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <title>PharmaHerbs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <body>
-    <h1>PharmaHerbs</h1>
+    <style>
+        body {
+            background-color: #6C6464;
+        }
+        .sidebar {
+            background-color: #89AC4E;
+            color: white;
+            height: 100vh;
+            padding-top: 40px;
+        }
+        .sidebar h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 18px;
+            padding-left: 10px;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background-color: white;
+            height: 100vh;
+            padding: 50px;
+        }
+        .search-box input[type="text"] {
+            width: 300px;
+            padding: 10px;
+        }
+        .search-box input[type="submit"] {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-  </body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sidebar">
+            <div class="text-start px-3">
+                <h2><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" width="24"> HOME</h2>
+                <a href="#">Herbs List</a>
+                <a href="#">Remedies</a>
+                <a href="#">Guides</a>
+                <a href="#">Contacts</a>
+            </div>
+        </div>
+
+        <div class="col-md-10 content">
+            <form class="search-box" action="search.php" method="GET">
+                <input type="text" name="query" placeholder="Search herbs...">
+                <input type="submit" value="Search" class="btn btn-secondary">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
