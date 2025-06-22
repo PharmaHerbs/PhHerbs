@@ -62,7 +62,10 @@
       object-fit: cover;
     }
 
-    
+    .sidebar .submenu a {
+      padding-left: 40px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -70,10 +73,17 @@
     <div class="row">
       <nav class="col-auto sidebar d-flex flex-column align-items-start pt-3">
         <img src="logo.png" alt="Logo" class="logo">
-        <a href="#">🏠 Home</a>
-        <a href="#">🌿 Herbs List</a>
-        <a href="#">💊 Remedies</a>
-        <a href="#">📘 Guides</a>
+        <a href="herbal_layout.php">🏠 Home</a>
+
+        <a href="herblist.php">
+          🌿 Herbs List
+        </a>
+        <div class="submenu">
+        <a href="about.php">📗 About</a>
+          <a href="remedies.php">📗 Remedies</a>
+          <a href="guide.php">📘 Guide</a>
+        </div>
+
         <a href="#">📞 Contacts</a>
       </nav>
 
@@ -85,13 +95,14 @@
           </form>
         </div>
 
-        <h1>Welcome to the Herbal Remedies Site!</h1>
         
-       
         <div class="card-grid mt-4">
+          <!-- Cards can go here -->
         </div>
       </main>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
