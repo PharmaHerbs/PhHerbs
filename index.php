@@ -1,71 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PharmaHerbs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Herbal Site</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #5a514d;
+    }
 
-    <style>
-        body {
-            background-color: #6C6464;
-        }
-        .sidebar {
-            background-color: #89AC4E;
-            color: white;
-            height: 100vh;
-            padding-top: 40px;
-        }
-        .sidebar h2 {
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
-        .sidebar a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            margin: 10px 0;
-            font-size: 18px;
-            padding-left: 10px;
-        }
-        .sidebar a:hover {
-            text-decoration: underline;
-        }
-        .content {
-            background-color: white;
-            height: 100vh;
-            padding: 50px;
-        }
-        .search-box input[type="text"] {
-            width: 300px;
-            padding: 10px;
-        }
-        .search-box input[type="submit"] {
-            padding: 10px 20px;
-        }
-    </style>
+    .sidebar {
+      background-color: #84a55b;
+      color: white;
+      min-height: 100vh;
+      width: 60px;
+      transition: width 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    .sidebar:hover {
+      width: 200px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .sidebar a:hover {
+      background-color: #728d4f;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 30px;
+      width: 40px;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+    }
+
+    .content {
+      background-color: white;
+      padding: 30px;
+      min-height: 100vh;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card img {
+      height: 150px;
+      object-fit: cover;
+    }
+
+    
+  </style>
 </head>
 <body>
-
-<div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2 sidebar">
-            <div class="text-start px-3">
-                <h2><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" width="24"> HOME</h2>
-                <a href="#">Herbs List</a>
-                <a href="#">Remedies</a>
-                <a href="#">Guides</a>
-                <a href="#">Contacts</a>
-            </div>
+      <nav class="col-auto sidebar d-flex flex-column align-items-start pt-3">
+        <img src="logo.png" alt="Logo" class="logo">
+        <a href="#">🏠 Home</a>
+        <a href="#">🌿 Herbs List</a>
+        <a href="#">💊 Remedies</a>
+        <a href="#">📘 Guides</a>
+        <a href="#">📞 Contacts</a>
+      </nav>
+
+      <main class="col content">
+        <div class="search-bar d-flex justify-content-end">
+          <form class="d-flex" action="search.php" method="GET">
+            <input class="form-control me-2" type="text" name="query" placeholder="Search...">
+            <button class="btn btn-secondary" type="submit">Search</button>
+          </form>
         </div>
 
-        <div class="col-md-10 content">
-            <form class="search-box" action="search.php" method="GET">
-                <input type="text" name="query" placeholder="Search herbs...">
-                <input type="submit" value="Search" class="btn btn-secondary">
-            </form>
+        <h1>Welcome to the Herbal Remedies Site!</h1>
+        
+       
+        <div class="card-grid mt-4">
         </div>
+      </main>
     </div>
-</div>
-
+  </div>
 </body>
 </html>
