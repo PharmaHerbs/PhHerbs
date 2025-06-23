@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="container-fluid py-3 sticky-top d-flex justify-content-between" style="background-color: rgb(0, 77, 18);">
+  <div class="container-fluid py-3 sticky-top " style="background-color: rgb(0, 77, 18);">
     <div class="container">
       <div class="row align-items-center">
         <div class="col">

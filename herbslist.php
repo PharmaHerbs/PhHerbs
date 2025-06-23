@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap Herbs Modal</title>
+  <title>Bootstrap Herbs Modal Loop</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    crossorigin="anonymous">
 </head>
 
 <body>
-  <!-- Navbar -->
+
   <div class="container-fluid py-3 sticky-top" style="background-color: rgb(0, 77, 18);">
     <div class="container">
       <div class="row align-items-center">
@@ -22,7 +22,7 @@
         </div>
         <div class="col">
           <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <input class="form-control me-2" type="search" placeholder="Search" />
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
@@ -30,101 +30,142 @@
     </div>
   </div>
 
-  <!-- Herbs List -->
+
   <div id="herbs-list" class="container my-5">
     <h2 class="mb-4">List of Herbs</h2>
-    <div class="row g-4">
+    <div class="row g-4" id="herb-cards"></div>
+  </div>
 
-      <!-- Card: Akapulko -->
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Cassia_alata.jpg" class="card-img-top" alt="Akapulko">
-          <div class="card-body">
-            <h5 class="card-title">Akapulko</h5>
-            <p class="card-text">Used for treating fungal skin infections.</p>
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#akapulkoModal">More Info</button>
+
+  <div id="herb-modals"></div>
+
+
+  <script>
+    //sample database for now
+    const herbs = [
+      {
+        id: "akapulko",
+        name: "Akapulko",
+        latin: "Cassia alata",
+        short: "Used for treating fungal skin infections.",
+        long: "Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites.",
+        img: ""
+      },
+      
+      {
+        id: "akapulko",
+        name: "Akapulko",
+        latin: "Cassia alata",
+        short: "Used for treating fungal skin infections.",
+        long: "Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites.",
+        img: ""
+      },
+      {
+        id: "akapulko",
+        name: "Akapulko",
+        latin: "Cassia alata",
+        short: "Used for treating fungal skin infections.",
+        long: "Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites.",
+        img: ""
+      },
+      {
+        id: "akapulko",
+        name: "Akapulko",
+        latin: "Cassia alata",
+        short: "Used for treating fungal skin infections.",
+        long: "Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites.",
+        img: ""
+      },
+      {
+        id: "ampalaya",
+        name: "Ampalaya",
+        latin: "Momordica charantia",
+        short: "Known for its anti-diabetic properties.",
+        long: "Ampalaya, or bitter melon, is widely used for lowering blood sugar levels. It contains compounds that act like insulin. It’s also eaten as a vegetable and boosts immunity.",
+        img: ""
+      },
+       {
+        id: "ampalaya",
+        name: "Ampalaya",
+        latin: "Momordica charantia",
+        short: "Known for its anti-diabetic properties.",
+        long: "Ampalaya, or bitter melon, is widely used for lowering blood sugar levels. It contains compounds that act like insulin. It’s also eaten as a vegetable and boosts immunity.",
+        img: ""
+      },
+       {
+        id: "ampalaya",
+        name: "Ampalaya",
+        latin: "Momordica charantia",
+        short: "Known for its anti-diabetic properties.",
+        long: "Ampalaya, or bitter melon, is widely used for lowering blood sugar levels. It contains compounds that act like insulin. It’s also eaten as a vegetable and boosts immunity.",
+        img: ""
+      },
+       {
+        id: "ampalaya",
+        name: "Ampalaya",
+        latin: "Momordica charantia",
+        short: "Known for its anti-diabetic properties.",
+        long: "Ampalaya, or bitter melon, is widely used for lowering blood sugar levels. It contains compounds that act like insulin. It’s also eaten as a vegetable and boosts immunity.",
+        img: ""
+      },
+       {
+        id: "ampalaya",
+        name: "Ampalaya",
+        latin: "Momordica charantia",
+        short: "Known for its anti-diabetic properties.",
+        long: "Ampalaya, or bitter melon, is widely used for lowering blood sugar levels. It contains compounds that act like insulin. It’s also eaten as a vegetable and boosts immunity.",
+        img: ""
+      },
+      {
+        id: "bayabas",
+        name: "Bayabas",
+        latin: "Psidium guajava",
+        short: "Traditionally used as antiseptic and for diarrhea.",
+        long: "Bayabas or guava is rich in vitamin C and antioxidants. Its leaves are boiled for rinses or drinks to treat wounds, inflammation, and diarrhea.",
+        img: ""
+      }
+    ];
+
+    const cardsContainer = document.getElementById("herb-cards");
+    const modalsContainer = document.getElementById("herb-modals");
+
+    herbs.forEach(herb => {
+   
+      cardsContainer.innerHTML += `
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="${herb.img}" class="card-img-top" alt="${herb.name}">
+            <div class="card-body">
+              <h5 class="card-title">${herb.name}</h5>
+              <p class="card-text">${herb.short}</p>
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#${herb.id}Modal">More Info</button>
+            </div>
           </div>
         </div>
-      </div>
+      `;
 
-      <!-- Card: Ampalaya -->
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Momordica_charantia_fruit.jpg" class="card-img-top" alt="Ampalaya">
-          <div class="card-body">
-            <h5 class="card-title">Ampalaya</h5>
-            <p class="card-text">Known for its anti-diabetic properties.</p>
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ampalayaModal">More Info</button>
+
+      modalsContainer.innerHTML += `
+        <div class="modal fade" id="${herb.id}Modal" tabindex="-1" aria-labelledby="${herb.id}Label" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="${herb.id}Label">${herb.name} (${herb.latin})</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="${herb.img}" class="img-fluid mb-3" alt="${herb.name}">
+                <p>${herb.long}</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      `;
+    });
+  </script>
 
-      <!-- Card: Bayabas -->
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Guava_ID.jpg" class="card-img-top" alt="Bayabas">
-          <div class="card-body">
-            <h5 class="card-title">Bayabas</h5>
-            <p class="card-text">Traditionally used as antiseptic and for diarrhea.</p>
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bayabasModal">More Info</button>
-          </div>
-        </div>
-      </div>
 
-    </div>
-  </div>
-
-  <!-- Modal: Akapulko -->
-  <div class="modal fade" id="akapulkoModal" tabindex="-1" aria-labelledby="akapulkoLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="akapulkoLabel">Akapulko (Cassia alata)</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Cassia_alata.jpg" class="img-fluid mb-3" alt="Akapulko">
-          <p>Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites. It also has antibacterial and anti-inflammatory benefits.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal: Ampalaya -->
-  <div class="modal fade" id="ampalayaModal" tabindex="-1" aria-labelledby="ampalayaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ampalayaLabel">Ampalaya (Momordica charantia)</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Momordica_charantia_fruit.jpg" class="img-fluid mb-3" alt="Ampalaya">
-          <p>Ampalaya, or bitter melon, is widely used for lowering blood sugar levels. It contains charantin and other compounds that act like insulin. It’s also eaten as a vegetable and is known to boost immunity and aid digestion.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal: Bayabas -->
-  <div class="modal fade" id="bayabasModal" tabindex="-1" aria-labelledby="bayabasLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="bayabasLabel">Bayabas (Psidium guajava)</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Guava_ID.jpg" class="img-fluid mb-3" alt="Bayabas">
-          <p>Bayabas or guava is rich in vitamin C and antioxidants. Guava leaves are often used in folk medicine for treating wounds, inflammation, and diarrhea. The leaves can be boiled and used as a rinse or drink for various therapeutic effects.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     crossorigin="anonymous"></script>
 </body>
 
