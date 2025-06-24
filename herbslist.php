@@ -49,24 +49,24 @@
         latin: "Cassia alata",
         short: "Used for treating fungal skin infections.",
         long: "Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites.",
-        img: ""
+        img: "img/Akapulko.png"
       },
       
       {
-        id: "akapulko",
-        name: "Akapulko",
-        latin: "Cassia alata",
-        short: "Used for treating fungal skin infections.",
-        long: "Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites.",
-        img: ""
+        id: "garlic",
+        name: "Garlic",
+        latin: "Allium sativum",
+        short: "Garlic is known as nature's antibiotic.",
+        long: " Its juices inhibit the growth of fungi and viruses thus, prevent viral, yeast, and infections.",
+        img: "img/garlic.png"
       },
       {
-        id: "akapulko",
-        name: "Akapulko",
-        latin: "Cassia alata",
-        short: "Used for treating fungal skin infections.",
-        long: "Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites.",
-        img: ""
+        id: "oregano",
+        name: "Oregano",
+        latin: "Origanum vulgare",
+        short: "known herbal medicine for its strong anti-oxidant properties.",
+        long: "Its anti-bacterial properties have been proven by recent studies to treat infections of the reproductive tracts, and which make it ideal to be given to women who have just given birth.",
+        img: "img/oregano.png"
       },
       {
         id: "akapulko",
