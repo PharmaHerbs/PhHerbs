@@ -1,20 +1,30 @@
+
+<?php
+include("herbdb.php");
+
+$hlistQuery = "SELECT * FROM herbs JOIN herbInfo ON herbs.herbID = herbInfo.herbID";
+$hlistResult = $conn->query($hlistQuery);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="website icon" href=img/logo.png>
     <title>Pharma Herbs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         xintegrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-color: #e6ffe6; /* Light green background */
+            background-color: #e6ffe6; 
         }
 
         .navbar-green {
-            background-color: #004d12; /* Darker green from the image */
+            background-color: #004d12; 
         }
 
         .card-custom {
@@ -24,23 +34,23 @@
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            display: flex; /* Use flexbox for vertical alignment */
+            display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Push content to top/bottom */
-            height: 100%; /* Ensure cards take full height of column */
+            justify-content: space-between; 
+            height: 100%; 
         }
 
         .card-custom img {
             max-width: 100%;
-            height: 180px; /* Fixed height for image consistency */
-            object-fit: contain; /* Ensure image fits without cropping and maintains aspect ratio */
+            height: 180px;
+            object-fit: contain; 
             border-radius: 10px;
             margin-bottom: 10px;
-            background-color: white; /* Ensure image background is white if transparent */
+            background-color: white;
         }
 
         .card-custom .card-body {
-            flex-grow: 1; /* Allow body to take available space */
+            flex-grow: 1; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -54,20 +64,20 @@
         .card-custom .card-text {
             font-size: 0.9em;
             color: #555;
-            flex-grow: 1; /* Allow text to take available space */
+            flex-grow: 1; 
         }
 
         .search-bar-container {
-            background-color: #ffffff; /* White background for search bar */
+            background-color: #ffffff; 
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
-            display: none; /* Hidden by default */
+            display: none; 
             text-align: center;
         }
 
-        /* Offcanvas styling for consistency */
+       
         .offcanvas {
             background-color: #f0f0f0;
         }
@@ -91,7 +101,7 @@
             color: #004d12;
         }
 
-        /* Styling for the modal content to match the desired look from About Us screenshot */
+       
         .modal-body-content {
             padding: 2rem;
             text-align: center;
@@ -120,7 +130,7 @@
     <nav class="navbar navbar-expand-lg navbar-green sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="https://placehold.co/40x40/004d12/ffffff?text=Logo" alt="Pharma Herbs Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+                <img src="img/logo.png"  width="40" height="40" class="d-inline-block align-text-top me-2">
                 <span class="h4 mb-0" style="color: white;">Pharma Herbs</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
