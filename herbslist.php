@@ -201,7 +201,7 @@
         </div>
         <div class="offcanvas-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="index.html" class="text-decoration-none text-dark">Home</a></li>
+                <li class="list-group-item"><a href="index.php" class="text-decoration-none text-dark">Home</a></li>
                 <!-- About Us link now triggers a modal -->
                 <li class="list-group-item"><a href="#" class="text-decoration-none text-dark" data-bs-toggle="modal"
                         data-bs-target="#aboutUsModal">About Us</a></li>
