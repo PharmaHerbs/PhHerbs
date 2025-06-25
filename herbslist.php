@@ -11,11 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            /* Old: background-color: #e6ffe6; */
             background: linear-gradient(to right top, #a8e0b1, #90d3a5, #78c699, #5db98e, #3fac82);
             font-family: "Inter", sans-serif;
             min-height: 100vh;
-            overflow-x: hidden; /* Prevent horizontal scroll from background shapes */
+            overflow-x: hidden; 
         }
 
         .background-shape {
@@ -43,15 +42,14 @@
 
 
         .navbar-green {
-            /* Glassmorphism for Navbar */
-            background-color: rgba(0, 77, 18, 0.5); /* Semi-transparent */
+           
+            background-color: rgba(0, 77, 18, 0.5); 
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); /* For Safari */
+            -webkit-backdrop-filter: blur(10px); 
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .card-custom {
-            /* Glassmorphism for Cards */
             background: rgba(255, 255, 255, 0.35);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -73,7 +71,6 @@
             object-fit: contain;
             border-radius: 10px;
             margin-bottom: 10px;
-            /* Give image a slightly transparent background to blend in */
             background: rgba(255, 255, 255, 0.5);
             padding: 5px;
             display: block;
@@ -91,17 +88,17 @@
         .card-custom .card-title {
             font-weight: bold;
             margin-bottom: 5px;
-            color: #002d09; /* Darker text for contrast */
+            color: #002d09; 
         }
 
         .card-custom .card-text {
             font-size: 0.9em;
-            color: #004d12; /* Themed green color */
+            color: #004d12; 
             flex-grow: 1;
         }
 
         .search-bar-container {
-            /* Glassmorphism for Search Bar */
+           
             background: rgba(255, 255, 255, 0.35);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -114,13 +111,13 @@
             text-align: center;
         }
 
-        /* Glassmorphism for Offcanvas and Modals */
+       
         .offcanvas, .modal-content {
-            background: rgba(240, 255, 240, 0.7); /* Lighter, more opaque background */
+            background: rgba(240, 255, 240, 0.7); /
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #002d09; /* Set base text color */
+            color: #002d09; 
         }
 
         .offcanvas-header, .modal-header {
@@ -174,7 +171,7 @@
 
         .modal-body-content .team-name {
             font-weight: 600;
-            color: #3fac82; /* Lighter highlight color */
+            color: #3fac82; 
         }
 
         .modal-body img {
@@ -194,7 +191,7 @@
 </head>
 
 <body>
-    <!-- Background Shape Elements -->
+    
     <div class="background-shape shape1"></div>
     <div class="background-shape shape2"></div>
 
@@ -464,11 +461,11 @@
         searchIconButton.addEventListener('click', function () {
             const isSearchHidden = searchBarContainer.style.display === 'none';
             searchBarContainer.style.display = isSearchHidden ? 'block' : 'none';
-            cardsContainer.style.display = 'none'; // Always hide cards when toggling search
+            cardsContainer.style.display = 'none'; /
             if (isSearchHidden) {
                 searchInput.focus();
             } else {
-                // If we are hiding search, reset and show all herbs
+                
                 searchInput.value = '';
                 renderHerbs(herbs);
                 cardsContainer.style.display = 'flex';
@@ -478,7 +475,7 @@
         searchInput.addEventListener('input', function () {
             const searchTerm = searchInput.value.toLowerCase();
             if (searchTerm) {
-                cardsContainer.style.display = 'flex'; // Show cards as user types
+                cardsContainer.style.display = 'flex'; 
                 const filteredHerbs = herbs.filter(herb =>
                     herb.name.toLowerCase().includes(searchTerm) ||
                     herb.latin.toLowerCase().includes(searchTerm) ||
@@ -487,7 +484,7 @@
                 );
                 renderHerbs(filteredHerbs);
             } else {
-                cardsContainer.style.display = 'none'; // Hide if search is empty
+                cardsContainer.style.display = 'none'; 
             }
         });
 
