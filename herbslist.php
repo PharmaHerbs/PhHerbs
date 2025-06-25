@@ -208,6 +208,7 @@
                 <!-- References link now triggers a modal -->
                 <li class="list-group-item"><a href="#" class="text-decoration-none text-dark" data-bs-toggle="modal"
                         data-bs-target="#referencesModal">References</a></li>
+                 <li class="list-group-item"><a href="LoginForm/index.php" class="text-decoration-none text-dark">Admin</a></li>
             </ul>
         </div>
     </div>
