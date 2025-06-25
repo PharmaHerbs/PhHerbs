@@ -7,25 +7,59 @@
     <link rel="website icon" href="img/logo.png">
     <title>Pharma Herbs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        xintegrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-color: #e6ffe6;
+            /* Old: background-color: #e6ffe6; */
+            background: linear-gradient(to right top, #a8e0b1, #90d3a5, #78c699, #5db98e, #3fac82);
             font-family: "Inter", sans-serif;
-            /* Added Inter font */
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll from background shapes */
         }
 
+        .background-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(150px);
+            z-index: -1;
+        }
+
+        .shape1 {
+            width: 400px;
+            height: 400px;
+            background: #90d3a5;
+            top: -100px;
+            left: -100px;
+        }
+
+        .shape2 {
+            width: 500px;
+            height: 500px;
+            background: #3fac82;
+            bottom: -150px;
+            right: -150px;
+        }
+
+
         .navbar-green {
-            background-color: #004d12;
+            /* Glassmorphism for Navbar */
+            background-color: rgba(0, 77, 18, 0.5); /* Semi-transparent */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .card-custom {
-            background-color: #f0f0f0;
+            /* Glassmorphism for Cards */
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             display: flex;
             flex-direction: column;
@@ -39,7 +73,12 @@
             object-fit: contain;
             border-radius: 10px;
             margin-bottom: 10px;
-            background-color: white;
+            /* Give image a slightly transparent background to blend in */
+            background: rgba(255, 255, 255, 0.5);
+            padding: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .card-custom .card-body {
@@ -52,34 +91,43 @@
         .card-custom .card-title {
             font-weight: bold;
             margin-bottom: 5px;
+            color: #002d09; /* Darker text for contrast */
         }
 
         .card-custom .card-text {
             font-size: 0.9em;
-            color: #555;
+            color: #004d12; /* Themed green color */
             flex-grow: 1;
         }
 
         .search-bar-container {
-            background-color: #ffffff;
+            /* Glassmorphism for Search Bar */
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
             margin-top: 20px;
             display: none;
             text-align: center;
         }
 
-
-        .offcanvas {
-            background-color: #f0f0f0;
+        /* Glassmorphism for Offcanvas and Modals */
+        .offcanvas, .modal-content {
+            background: rgba(240, 255, 240, 0.7); /* Lighter, more opaque background */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #002d09; /* Set base text color */
         }
 
-        .offcanvas-header {
-            border-bottom: 1px solid #ddd;
+        .offcanvas-header, .modal-header {
+            border-bottom: 1px solid rgba(0, 77, 18, 0.2);
         }
 
-        .offcanvas-title {
+        .offcanvas-title, .modal-title {
             font-weight: bold;
             color: #004d12;
         }
@@ -92,13 +140,13 @@
 
         .list-group-item a {
             font-size: 1.1rem;
-            color: #333;
+            color: #004d12;
+            font-weight: 500;
         }
 
         .list-group-item a:hover {
-            color: #004d12;
+            color: #002d09;
         }
-
 
         .modal-body-content {
             padding: 2rem;
@@ -108,27 +156,25 @@
         .modal-body-content h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #333;
+            color: #004d12;
             margin-bottom: 1.5rem;
         }
 
         .modal-body-content p {
             font-size: 1.125rem;
             line-height: 1.8;
-            color: #555;
+            color: #002d09;
             margin-bottom: 1.5rem;
             text-align: justify;
+        }
+        
+        .modal-body p {
+            color: #002d09;
         }
 
         .modal-body-content .team-name {
             font-weight: 600;
-            color: #004d12;
-        }
-
-        .card-custom img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+            color: #3fac82; /* Lighter highlight color */
         }
 
         .modal-body img {
@@ -142,11 +188,16 @@
 
         .modal-body p strong {
             font-weight: bold;
+            color: #004d12;
         }
     </style>
 </head>
 
 <body>
+    <!-- Background Shape Elements -->
+    <div class="background-shape shape1"></div>
+    <div class="background-shape shape2"></div>
+
     <nav class="navbar navbar-expand-lg navbar-green sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -197,18 +248,16 @@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="index.php" class="text-decoration-none text-dark">Home</a></li>
-                <!-- About Us link now triggers a modal -->
-                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark" data-bs-toggle="modal"
+                <li class="list-group-item"><a href="index.php" class="text-decoration-none">Home</a></li>
+                <li class="list-group-item"><a href="#" class="text-decoration-none" data-bs-toggle="modal"
                         data-bs-target="#aboutUsModal">About Us</a></li>
-                <!-- References link now triggers a modal -->
-                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark" data-bs-toggle="modal"
+                <li class="list-group-item"><a href="#" class="text-decoration-none" data-bs-toggle="modal"
                         data-bs-target="#referencesModal">References</a></li>
-                 <li class="list-group-item"><a href="LoginForm/index.php" class="text-decoration-none text-dark">Admin</a></li>
+                 <li class="list-group-item"><a href="LoginForm/index.php" class="text-decoration-none">Admin</a></li>
             </ul>
         </div>
     </div>
@@ -219,7 +268,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="aboutUsModalLabel">About Us</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body modal-body-content">
                     <h1>About Us</h1>
@@ -258,21 +307,21 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="referencesModalLabel">References</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body modal-body-content">
                     <h1>References</h1>
-                    <ul class="list-disc pl-5 text-lg text-gray-700 leading-relaxed">
-                        <li class="mb-2">Reference 1:
-                            https://philippineherbalmedicine.org/doh_herbs.htm?fbclid=IwY2xjawLIlNZleHRuA2FlbQIxMABicmlkETF0MkJnaUJwWk9scDdrTVBEAR4ah09uce_ix0QMEN2-qlUJwTqD8pPyeud3ictYGTAFjPQBr0jrH_nDvVD76g_aem_iHi5EM8b9SZoxjHWfBY4uQ.
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><strong>Reference 1:</strong>
+                            https://philippineherbalmedicine.org/doh_herbs.htm
                         </li>
-                        <li class="mb-2">Reference 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        <li class="mb-2"><strong>Reference 2:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </li>
-                        <li class="mb-2">Reference 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        <li class="mb-2"><strong>Reference 3:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco
                             laboris.</li>
-                        <li class="mb-2">Reference 4: Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        <li class="mb-2"><strong>Reference 4:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse
                             cillum dolore.</li>
-                        <li class="mb-2">Reference 5: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        <li class="mb-2"><strong>Reference 5:</strong> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
                             officia.</li>
                     </ul>
                 </div>
@@ -281,7 +330,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        xintegrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
 
     <script>
@@ -381,11 +429,11 @@
                 modalDiv.setAttribute('aria-labelledby', `${herb.id}Label`);
                 modalDiv.setAttribute('aria-hidden', 'true');
                 modalDiv.innerHTML = `
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="${herb.id}Label">${herb.name} (${herb.latin})</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <img src="${herb.img}" class="img-fluid mb-3" alt="${herb.name}">
@@ -414,27 +462,33 @@
         });
 
         searchIconButton.addEventListener('click', function () {
-            if (searchBarContainer.style.display === 'none') {
-                searchBarContainer.style.display = 'block';
-                cardsContainer.style.display = 'none';
+            const isSearchHidden = searchBarContainer.style.display === 'none';
+            searchBarContainer.style.display = isSearchHidden ? 'block' : 'none';
+            cardsContainer.style.display = 'none'; // Always hide cards when toggling search
+            if (isSearchHidden) {
                 searchInput.focus();
             } else {
-                searchBarContainer.style.display = 'none';
-                cardsContainer.style.display = 'flex';
+                // If we are hiding search, reset and show all herbs
                 searchInput.value = '';
                 renderHerbs(herbs);
+                cardsContainer.style.display = 'flex';
             }
         });
 
         searchInput.addEventListener('input', function () {
             const searchTerm = searchInput.value.toLowerCase();
-            const filteredHerbs = herbs.filter(herb =>
-                herb.name.toLowerCase().includes(searchTerm) ||
-                herb.latin.toLowerCase().includes(searchTerm) ||
-                herb.short.toLowerCase().includes(searchTerm) ||
-                herb.long.toLowerCase().includes(searchTerm)
-            );
-            renderHerbs(filteredHerbs);
+            if (searchTerm) {
+                cardsContainer.style.display = 'flex'; // Show cards as user types
+                const filteredHerbs = herbs.filter(herb =>
+                    herb.name.toLowerCase().includes(searchTerm) ||
+                    herb.latin.toLowerCase().includes(searchTerm) ||
+                    herb.short.toLowerCase().includes(searchTerm) ||
+                    herb.long.toLowerCase().includes(searchTerm)
+                );
+                renderHerbs(filteredHerbs);
+            } else {
+                cardsContainer.style.display = 'none'; // Hide if search is empty
+            }
         });
 
         searchBarContainer.querySelector('form').addEventListener('submit', function (event) {
