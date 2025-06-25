@@ -337,7 +337,7 @@
                 long: "Ampalaya, or bitter melon, is widely used for lowering blood sugar levels. It contains compounds that act like insulin. It’s also eaten as a vegetable and boosts immunity.",
                 remedies: "Lowers blood sugar levels, aids in diabetes management.",
                 benefits: "Boosts immunity, rich in vitamins and minerals.",
-                img: "img/Ampalaya.png"
+                img: "img/ampalaya.png"
             },
             {
                 id: "garlic",
@@ -377,7 +377,7 @@
                 long: "Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites.",
                 remedies: "Treats fungal skin infections like ringworm and scabies, alleviates insect bites.",
                 benefits: "Natural antifungal agent, supports skin health.",
-                img: "img/Akapulko.png"
+                img: "img/akapulko.png"
             },
             {
                 id: "bayabas",
