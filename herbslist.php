@@ -42,7 +42,6 @@
 
 
         .navbar-green {
-           
             background-color: rgba(0, 77, 18, 0.5); 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px); 
@@ -98,7 +97,6 @@
         }
 
         .search-bar-container {
-           
             background: rgba(255, 255, 255, 0.35);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -111,9 +109,9 @@
             text-align: center;
         }
 
-       
+     
         .offcanvas, .modal-content {
-            background: rgba(240, 255, 240, 0.7); /
+            background: rgba(240, 255, 240, 0.7); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -191,7 +189,7 @@
 </head>
 
 <body>
-    
+    <!-- Background Shape Elements -->
     <div class="background-shape shape1"></div>
     <div class="background-shape shape2"></div>
 
@@ -461,11 +459,10 @@
         searchIconButton.addEventListener('click', function () {
             const isSearchHidden = searchBarContainer.style.display === 'none';
             searchBarContainer.style.display = isSearchHidden ? 'block' : 'none';
-            cardsContainer.style.display = 'none'; /
+            cardsContainer.style.display = 'none'; 
             if (isSearchHidden) {
                 searchInput.focus();
             } else {
-                
                 searchInput.value = '';
                 renderHerbs(herbs);
                 cardsContainer.style.display = 'flex';
