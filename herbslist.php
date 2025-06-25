@@ -1,11 +1,4 @@
 
-<?php
-include("herbdb.php");
-
-$hlistQuery = "SELECT * FROM herbs JOIN herbInfo ON herbs.herbID = herbInfo.herbID";
-$hlistResult = $conn->query($hlistQuery);
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
