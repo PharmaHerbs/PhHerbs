@@ -1,23 +1,23 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="website icon" href=img/logo.png>
+    <link rel="website icon" href="img/logo.png">
     <title>Pharma Herbs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         xintegrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-color: #e6ffe6; 
+            background-color: #e6ffe6;
+            font-family: "Inter", sans-serif;
+            /* Added Inter font */
         }
 
         .navbar-green {
-            background-color: #004d12; 
+            background-color: #004d12;
         }
 
         .card-custom {
@@ -29,21 +29,21 @@
             margin-bottom: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; 
-            height: 100%; 
+            justify-content: space-between;
+            height: 100%;
         }
 
         .card-custom img {
             max-width: 100%;
             height: 180px;
-            object-fit: contain; 
+            object-fit: contain;
             border-radius: 10px;
             margin-bottom: 10px;
             background-color: white;
         }
 
         .card-custom .card-body {
-            flex-grow: 1; 
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -57,54 +57,61 @@
         .card-custom .card-text {
             font-size: 0.9em;
             color: #555;
-            flex-grow: 1; 
+            flex-grow: 1;
         }
 
         .search-bar-container {
-            background-color: #ffffff; 
+            background-color: #ffffff;
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
-            display: none; 
+            display: none;
             text-align: center;
         }
 
-       
+
         .offcanvas {
             background-color: #f0f0f0;
         }
+
         .offcanvas-header {
             border-bottom: 1px solid #ddd;
         }
+
         .offcanvas-title {
             font-weight: bold;
             color: #004d12;
         }
+
         .list-group-item {
             background-color: transparent;
             border: none;
             padding: 1rem 1.5rem;
         }
+
         .list-group-item a {
             font-size: 1.1rem;
             color: #333;
         }
+
         .list-group-item a:hover {
             color: #004d12;
         }
 
-       
+
         .modal-body-content {
             padding: 2rem;
             text-align: center;
         }
+
         .modal-body-content h1 {
             font-size: 2.5rem;
             font-weight: 700;
             color: #333;
             margin-bottom: 1.5rem;
         }
+
         .modal-body-content p {
             font-size: 1.125rem;
             line-height: 1.8;
@@ -112,9 +119,29 @@
             margin-bottom: 1.5rem;
             text-align: justify;
         }
+
         .modal-body-content .team-name {
             font-weight: 600;
             color: #004d12;
+        }
+
+        .card-custom img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .modal-body img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .modal-body p strong {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -123,7 +150,7 @@
     <nav class="navbar navbar-expand-lg navbar-green sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="img/logo.png"  width="40" height="40" class="d-inline-block align-text-top me-2">
+                <img src="img/logo.png" width="40" height="40" class="d-inline-block align-text-top me-2">
                 <span class="h4 mb-0" style="color: white;">Pharma Herbs</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -141,7 +168,8 @@
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                             <i class="fas fa-bars"></i>
                         </button>
                     </li>
@@ -152,7 +180,8 @@
 
     <div class="container search-bar-container" id="searchBarContainer">
         <form class="d-flex justify-content-center">
-            <input class="form-control me-2" type="search" placeholder="Search for herbs..." aria-label="Search" style="max-width: 500px;" id="searchInput" />
+            <input class="form-control me-2" type="search" placeholder="Search for herbs..." aria-label="Search"
+                style="max-width: 500px;" id="searchInput" />
             <button class="btn btn-success" type="submit">Search</button>
         </form>
     </div>
@@ -174,9 +203,11 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="index.html" class="text-decoration-none text-dark">Home</a></li>
                 <!-- About Us link now triggers a modal -->
-                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#aboutUsModal">About Us</a></li>
+                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark" data-bs-toggle="modal"
+                        data-bs-target="#aboutUsModal">About Us</a></li>
                 <!-- References link now triggers a modal -->
-                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#referencesModal">References</a></li>
+                <li class="list-group-item"><a href="#" class="text-decoration-none text-dark" data-bs-toggle="modal"
+                        data-bs-target="#referencesModal">References</a></li>
             </ul>
         </div>
     </div>
@@ -205,7 +236,8 @@
                         <span class="team-name">Gwyneth Minor</span>,
                         <span class="team-name">Linel Martin Monta</span>,
                         <span class="team-name">Margareth Dela Rosa</span>, and
-                        <span class="team-name">Jet Pitogo</span> — created this project with the goal of making knowledge
+                        <span class="team-name">Jet Pitogo</span> — created this project with the goal of making
+                        knowledge
                         about Filipino herbal medicine more accessible to the public. Through this initiative, we
                         hope to contribute to the preservation of our cultural heritage and support the use of
                         natural, plant-based remedies in daily health practices.
@@ -219,7 +251,8 @@
     </div>
 
     <!-- References Modal -->
-    <div class="modal fade" id="referencesModal" tabindex="-1" aria-labelledby="referencesModalLabel" aria-hidden="true">
+    <div class="modal fade" id="referencesModal" tabindex="-1" aria-labelledby="referencesModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -229,11 +262,17 @@
                 <div class="modal-body modal-body-content">
                     <h1>References</h1>
                     <ul class="list-disc pl-5 text-lg text-gray-700 leading-relaxed">
-                        <li class="mb-2">Reference 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li class="mb-2">Reference 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-                        <li class="mb-2">Reference 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
-                        <li class="mb-2">Reference 4: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</li>
-                        <li class="mb-2">Reference 5: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</li>
+                        <li class="mb-2">Reference 1:
+                            https://philippineherbalmedicine.org/doh_herbs.htm?fbclid=IwY2xjawLIlNZleHRuA2FlbQIxMABicmlkETF0MkJnaUJwWk9scDdrTVBEAR4ah09uce_ix0QMEN2-qlUJwTqD8pPyeud3ictYGTAFjPQBr0jrH_nDvVD76g_aem_iHi5EM8b9SZoxjHWfBY4uQ.
+                        </li>
+                        <li class="mb-2">Reference 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </li>
+                        <li class="mb-2">Reference 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris.</li>
+                        <li class="mb-2">Reference 4: Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore.</li>
+                        <li class="mb-2">Reference 5: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia.</li>
                     </ul>
                 </div>
             </div>
@@ -252,7 +291,9 @@
                 latin: "Momordica charantia",
                 short: "Known for its anti-diabetic properties.",
                 long: "Ampalaya, or bitter melon, is widely used for lowering blood sugar levels. It contains compounds that act like insulin. It’s also eaten as a vegetable and boosts immunity.",
-                img: "https://placehold.co/180x180/ffffff/000000?text=Ampalaya"
+                remedies: "Lowers blood sugar levels, aids in diabetes management.",
+                benefits: "Boosts immunity, rich in vitamins and minerals.",
+                img: "img/Ampalaya.png"
             },
             {
                 id: "garlic",
@@ -260,7 +301,9 @@
                 latin: "Allium sativum",
                 short: "Garlic is known as nature's antibiotic.",
                 long: "Its juices inhibit the growth of fungi and viruses thus, prevent viral, yeast, and infections.",
-                img: "img/garlic/png"
+                remedies: "Effective against fungal and viral infections, helps prevent various infections.",
+                benefits: "Boosts immune system, has anti-inflammatory properties.",
+                img: "img/garlic.png"
             },
             {
                 id: "ginger",
@@ -268,7 +311,9 @@
                 latin: "Zingiber officinale",
                 short: "Commonly used for its anti-inflammatory and digestive benefits.",
                 long: "Ginger is a widely used spice and traditional medicine. It's effective against nausea, can reduce muscle pain and soreness, and has powerful anti-inflammatory and antioxidant effects.",
-                img: "https://placehold.co/180x180/ffffff/000000?text=Ginger"
+                remedies: "Alleviates nausea, reduces muscle pain and soreness.",
+                benefits: "Powerful anti-inflammatory and antioxidant effects, aids digestion.",
+                img: "img/ginger.png"
             },
             {
                 id: "oregano",
@@ -276,7 +321,9 @@
                 latin: "Origanum vulgare",
                 short: "known herbal medicine for its strong anti-oxidant properties.",
                 long: "Its anti-bacterial properties have been proven by recent studies to treat infections of the reproductive tracts, and which make it ideal to be given to women who have just given birth.",
-                img: "img/oregano.png"
+                remedies: "Treats reproductive tract infections, strong antibacterial properties.",
+                benefits: "Strong antioxidant properties, supports overall health.",
+                img: "img/Oregano.png"
             },
             {
                 id: "akapulko",
@@ -284,6 +331,8 @@
                 latin: "Cassia alata",
                 short: "Used for treating fungal skin infections.",
                 long: "Akapulko, or Senna alata, is a medicinal shrub known for its antifungal properties. It is commonly used in traditional Philippine medicine to treat skin diseases such as ringworm, scabies, and insect bites.",
+                remedies: "Treats fungal skin infections like ringworm and scabies, alleviates insect bites.",
+                benefits: "Natural antifungal agent, supports skin health.",
                 img: "img/Akapulko.png"
             },
             {
@@ -292,7 +341,9 @@
                 latin: "Psidium guajava",
                 short: "Traditionally used as antiseptic and for diarrhea.",
                 long: "Bayabas or guava is rich in vitamin C and antioxidants. Its leaves are boiled for rinses or drinks to treat wounds, inflammation, and diarrhea.",
-                img: "https://placehold.co/180x180/ffffff/000000?text=Bayabas"
+                remedies: "Treats wounds, reduces inflammation, effective against diarrhea.",
+                benefits: "Rich in Vitamin C and antioxidants, natural antiseptic.",
+                img: "img/bayabas.png"
             }
         ];
 
@@ -338,6 +389,8 @@
                             <div class="modal-body">
                                 <img src="${herb.img}" class="img-fluid mb-3" alt="${herb.name}">
                                 <p>${herb.long}</p>
+                                ${herb.remedies ? `<p><strong>Remedies:</strong> ${herb.remedies}</p>` : ''}
+                                ${herb.benefits ? `<p><strong>Benefits:</strong> ${herb.benefits}</p>` : ''}
                             </div>
                         </div>
                     </div>
@@ -383,7 +436,7 @@
             renderHerbs(filteredHerbs);
         });
 
-        searchBarContainer.querySelector('form').addEventListener('submit', function(event) {
+        searchBarContainer.querySelector('form').addEventListener('submit', function (event) {
             event.preventDefault();
         });
     </script>
