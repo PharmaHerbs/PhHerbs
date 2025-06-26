@@ -3,7 +3,6 @@ include("herbdb.php");
 
 $listQuery = "SELECT * FROM herblist";
 $listResult = executeQuery($listQuery);
-$herbs = mysqli_fetch_all($listResult, MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -54,30 +53,30 @@ $herbs = mysqli_fetch_all($listResult, MYSQLI_ASSOC);
 
   <div class="container my-4" id="cardsContainer">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-      <?php foreach ($herbs as $row) { ?>
+      <?php while($row = mysqli_fetch_assoc($listResult)) { ?>
         <div class="col">
           <div class="card-custom">
-            <img src="<?= $row['herbImg'] ?>" alt="<?= $row['herbName'] ?>" class="img-fluid">
+            <img src="<?php echo $row['herbImg']; ?>" alt="<?php echo $row['herbName']; ?>" class="img-fluid">
             <div class="card-body">
-              <h5 class="card-title"><?= $row['herbName'] ?></h5>
-              <p class="card-text"><?= $row['herbDesc'] ?></p>
-              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal<?= $row['herbID'] ?>">More Info</button>
+              <h5 class="card-title"><?php echo $row['herbName']; ?></h5>
+              <p class="card-text"><?php echo $row['herbDesc']; ?></p>
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal<?php echo $row['herbID']; ?>">More Info</button>
             </div>
           </div>
         </div>
 
-        <div class="modal fade" id="modal<?= $row['herbID'] ?>" tabindex="-1" aria-labelledby="modalLabel<?= $row['herbID'] ?>" aria-hidden="true">
+        <div class="modal fade" id="modal<?php echo $row['herbID']; ?>" tabindex="-1" aria-labelledby="modalLabel<?php echo $row['herbID']; ?>" aria-hidden="true">
           <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel<?= $row['herbID'] ?>"><?= $row['herbName'] ?> (<?= $row['herbLatin'] ?>)</h5>
+                <h5 class="modal-title" id="modalLabel<?php echo $row['herbID']; ?>"><?php echo $row['herbName']; ?> (<?php echo $row['herbLatin']; ?>)</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
               </div>
               <div class="modal-body modal-body-content">
-                <img src="<?= $row['herbImg'] ?>" alt="<?= $row['herbName'] ?>">
-                <p><strong>Description:</strong> <?= $row['herbDesc'] ?></p>
-                <p><strong>Benefits:</strong> <?= $row['herbBenefits'] ?></p>
-                <p><strong>Usage Guide:</strong> <?= $row['herbGuide'] ?></p>
+                <img src="<?php echo $row['herbImg']; ?>" alt="<?php echo $row['herbName']; ?>">
+                <p><strong>Description:</strong> <?php echo $row['herbDesc']; ?></p>
+                <p><strong>Benefits:</strong> <?php echo $row['herbBenefits']; ?></p>
+                <p><strong>Usage Guide:</strong> <?php echo $row['herbGuide']; ?></p>
               </div>
             </div>
           </div>

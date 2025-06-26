@@ -1,24 +1,33 @@
 <?php
-// login.php
+include("../herbdb.php");
+
+session_start();
+session_destroy();
 session_start();
 
-// Hardcoded credentials
-$correctUsername = "admin";
-$correctPassword = "admin123";
+$error = '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"] ?? '';
-    $password = $_POST["password"] ?? '';
+if (isset($_POST['username'])) {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
 
-    if ($username === $correctUsername && $password === $correctPassword) {
-        $_SESSION['loggedin'] = true;
-        header("Location: ../admin/index.php"); // Redirect to admin dashboard
-        exit();
-    } else {
-        $error = "Invalid username or password.";
+  $loginquery = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+  $loginresult = executeQuery($loginquery);
+
+  if (mysqli_num_rows($loginresult) > 0) {
+    while ($row = mysqli_fetch_assoc($loginresult)) {
+      $_SESSION['username'] = $row['username'];
+      $_SESSION['password'] = $row['password'];
     }
+    header("Location: admin/index.php");
+    exit();
+  } else {
+    $error = "NO USER FOUND";
+  }
 }
 ?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -30,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <style>
     body {
-      background-image: url('logInBackground.gif');
+      background-image: url('img/logInBackground.gif');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -92,13 +101,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="row justify-content-center align-items-center w-100">
 
       <div class="col-md-6 d-flex justify-content-center align-items-center order-1 order-md-1 mb-4 mb-md-0">
-        <img src="pharmaHerbLogo.png" alt="Logo" class="img-fluid desktop-logo">
+        <img src="img/pharmaHerbLogo.png" alt="Logo" class="img-fluid desktop-logo">
       </div>
 
       <div class="col-md-6 d-flex justify-content-center align-items-center order-2 order-md-2">
         <div class="login-box">
           <?php if (!empty($error)): ?>
-            <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+            <div class="alert alert-danger"><?= echo($error) ?></div>
           <?php endif; ?>
           <form method="POST" action="">
             <div class="mb-4">
@@ -112,6 +121,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="d-grid">
               <button type="submit" class="btn btn-login">Log In</button>
             </div>
+            <div class="d-grid">
+               <a href="../herbslist.php" class="text-white text-decoration-underline text-center mt-3">Back to Home</a>
+            </div>
+
           </form>
         </div>
       </div>

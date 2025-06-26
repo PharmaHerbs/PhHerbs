@@ -86,23 +86,7 @@
 
 <body>
 
-    <header class="bg-pharma-green text-white py-3 px-4 sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-    <img src="img/navbarlogo.png" alt="Pharma Herbs Logo" class="h-10 w-10 object-contain">
-            <span class="text-2xl font-semibold">Pharma Herbs</span>
-        </div>
-
-            <nav class="flex items-center space-x-4">
-                <button class="text-white hover:text-gray-300 focus:outline-none p-2 rounded-full hover:bg-green-700 transition duration-300">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button class="text-white hover:text-gray-300 focus:outline-none p-2 rounded-full hover:bg-green-700 transition duration-300">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-    </header>
+   
 
     <main class="hero-section" id="heroSection">
         <div class="hero-overlay"></div>
