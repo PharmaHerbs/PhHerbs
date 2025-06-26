@@ -43,7 +43,6 @@ $listResult = executeQuery($listQuery);
               <i class="fas fa-times"></i>
             </button>
           </li>
-
           <li class="nav-item">
             <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasRight">
@@ -63,12 +62,11 @@ $listResult = executeQuery($listQuery);
     </form>
   </div>
 
-
   <div class="container my-4" id="cardsContainer">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
       <?php while($row = mysqli_fetch_assoc($listResult)) { ?>
       <div class="col">
-        <div class="card-custom">
+        <div class="card-custom herb-card">
           <img src="<?php echo $row['herbImg']; ?>" alt="<?php echo $row['herbName']; ?>" class="img-fluid">
           <div class="card-body">
             <h5 class="card-title">
@@ -124,10 +122,11 @@ $listResult = executeQuery($listQuery);
         <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#aboutUsModal">About Us</a></li>
         <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#referencesModal">References</a>
         </li>
-        <li class="list-group-item"><a href="LoginForm/index.php" class="text-decoration-none">Admin</a></li>
+        <li class="list-group-item"><a href="LoginForm/logIn.php" class="text-decoration-none">Admin</a></li>
       </ul>
     </div>
   </div>
+
 
   <div class="modal fade" id="aboutUsModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -138,23 +137,12 @@ $listResult = executeQuery($listQuery);
         </div>
         <div class="modal-body modal-body-content">
           <p>Welcome to our Philippine Herbal Medicine website – your trusted source for reliable, research-based
-            information about local herbal plants and their natural healing benefits. This platform is dedicated to
-            educating and promoting the rich tradition of herbal medicine in the Philippines, aiming to bridge ancestral
-            wisdom with modern understanding.
-          </p>
-          <p>This website was proudly developed by second-year Diploma in Information Technology students
-            from the Polytechnic University of the Philippines – Sto. Tomas Campus. Our team — John Adrian De Mesa,
-            Gwyneth Minor, Linel Martin Monta, Margareth, and Jet Pitogo — created this project with the goal of making
-            knowledge about Filipino herbal medicine more accessible to the public. Through this initiative, we hope to
-            contribute to the preservation of our cultural heritage and support the use of natural, plant-based remedies
-            in daily health practices.
-          </p>
-          <p>Thank you for visiting and joining us in embracing the healing power of nature.
-          </p>
+            information about local herbal plants and their natural healing benefits...</p>
         </div>
       </div>
     </div>
   </div>
+
 
   <div class="modal fade" id="referencesModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -165,36 +153,18 @@ $listResult = executeQuery($listQuery);
         </div>
         <div class="modal-body modal-body-content">
           <p>Sources include the Department of Health - Philippines, Herbal Books, and Verified Online Databases.</p>
-        <ul>
-          <li>
-            <strong>Philippine Department of Health - Traditional and Alternative Health Care</strong><br>
-            Website: <a href="https://www.doh.gov.ph" target="_blank">https://www.doh.gov.ph</a><br>
-            Accessed: June 2025
-          </li>
-          <li>
-            <strong>PITAHC (Philippine Institute of Traditional and Alternative Health Care)</strong><br>
-            Website: <a href="https://pitahc.gov.ph" target="_blank">https://pitahc.gov.ph</a><br>
-            Accessed: June 2025
-          </li>
-          <li>
-            <strong>Quisumbing, E. (1978).</strong> <em>Medicinal Plants of the Philippines</em><br>
-            Katha Publishing Co.
-          </li>
-          <li>
-            <strong>World Health Organization (WHO) - Traditional Medicine</strong><br>
-            Website: <a href="https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine" target="_blank">
-              https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine</a><br>
-            Accessed: June 2025
-          </li>
-          <li>
-            <strong>National Center for Biotechnology Information (NCBI) - Herbal Medicine Studies</strong><br>
-            Website: <a href="https://www.ncbi.nlm.nih.gov/" target="_blank">https://www.ncbi.nlm.nih.gov/</a><br>
-            Accessed: June 2025
-          </li>
+          <ul>
+            <li><strong>DOH:</strong> <a href="https://www.doh.gov.ph" target="_blank">https://www.doh.gov.ph</a></li>
+            <li><strong>PITAHC:</strong> <a href="https://pitahc.gov.ph" target="_blank">https://pitahc.gov.ph</a></li>
+            <li><strong>WHO:</strong> <a href="https://www.who.int/" target="_blank">https://www.who.int/</a></li>
+            <li><strong>NCBI:</strong> <a href="https://www.ncbi.nlm.nih.gov/"
+                target="_blank">https://www.ncbi.nlm.nih.gov/</a></li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
@@ -216,13 +186,30 @@ $listResult = executeQuery($listQuery);
       searchInput.value = "";
       hideSearchBtn.style.display = "none";
       showSearchBtn.style.display = "inline-block";
+
+      document.querySelectorAll('.herb-card').forEach(card => {
+        card.closest('.col').style.display = 'block';
+      });
     }
 
-    
+    searchInput.addEventListener('input', function () {
+      const keyword = this.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.herb-card');
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(keyword)) {
+          card.closest('.col').style.display = 'block';
+        } else {
+          card.closest('.col').style.display = 'none';
+        }
+      });
+    });
+
+
     searchBarContainer.querySelector('form').addEventListener('submit', function (event) {
       event.preventDefault();
     });
-    
   </script>
 </body>
 

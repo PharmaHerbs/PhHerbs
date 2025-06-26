@@ -19,7 +19,7 @@ if (isset($_POST['username'])) {
       $_SESSION['username'] = $row['username'];
       $_SESSION['password'] = $row['password'];
     }
-    header("Location: admin/index.php");
+    header("Location: admin/admin.php");
     exit();
   } else {
     $error = "NO USER FOUND";

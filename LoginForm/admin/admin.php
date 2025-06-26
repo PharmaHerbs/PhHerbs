@@ -10,7 +10,6 @@ if (!isset($username)) {
     exit();
 }
 
-
 $listQuery = "SELECT * FROM herblist";
 $listResult = executeQuery($listQuery);
 ?>
@@ -28,16 +27,19 @@ $listResult = executeQuery($listQuery);
         html, body {
             height: 100%;
             margin: 0;
+            background: url('adminSide.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
         }
 
         .wrapper {
             display: flex;
-            height: calc(100% - 70px); 
+            height: calc(100% - 70px);
         }
 
         .sidebar {
             width: 220px;
-            background-color: #343a40;
+            background-color: rgba(52, 58, 64, 0.95);
             color: white;
             flex-shrink: 0;
             padding-top: 1rem;
@@ -55,7 +57,7 @@ $listResult = executeQuery($listQuery);
         }
 
         .banner {
-            background-color: #6c757d;
+            background-color: rgba(108, 117, 125, 0.95);
             color: white;
             padding: 15px;
             height: 70px;
@@ -65,6 +67,9 @@ $listResult = executeQuery($listQuery);
             flex-grow: 1;
             padding: 20px;
             overflow-y: auto;
+            border-radius: 10px;
+            margin: 20px;
+            color: white;
         }
     </style>
 </head>
