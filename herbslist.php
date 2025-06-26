@@ -165,12 +165,32 @@ $listResult = executeQuery($listQuery);
         </div>
         <div class="modal-body modal-body-content">
           <p>Sources include the Department of Health - Philippines, Herbal Books, and Verified Online Databases.</p>
-          <ul>
-            <li><strong>DOH:</strong> <a href="https://www.doh.gov.ph" target="_blank">https://www.doh.gov.ph</a></li>
-            <li><strong>PITAHC:</strong> <a href="https://pitahc.gov.ph" target="_blank">https://pitahc.gov.ph</a></li>
-            <li><strong>WHO:</strong> <a href="https://www.who.int/" target="_blank">https://www.who.int/</a></li>
-            <li><strong>NCBI:</strong> <a href="https://www.ncbi.nlm.nih.gov/"
-                target="_blank">https://www.ncbi.nlm.nih.gov/</a></li>
+            <ul>
+          <li>
+            <strong>Philippine Department of Health - Traditional and Alternative Health Care</strong><br>
+            Website: <a href="https://www.doh.gov.ph" target="_blank">https://www.doh.gov.ph</a><br>
+            Accessed: June 2025
+          </li>
+          <li>
+            <strong>PITAHC (Philippine Institute of Traditional and Alternative Health Care)</strong><br>
+            Website: <a href="https://pitahc.gov.ph" target="_blank">https://pitahc.gov.ph</a><br>
+            Accessed: June 2025
+          </li>
+          <li>
+            <strong>Quisumbing, E. (1978).</strong> <em>Medicinal Plants of the Philippines</em><br>
+            Katha Publishing Co.
+          </li>
+          <li>
+            <strong>World Health Organization (WHO) - Traditional Medicine</strong><br>
+            Website: <a href="https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine" target="_blank">
+              https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine</a><br>
+            Accessed: June 2025
+          </li>
+          <li>
+            <strong>National Center for Biotechnology Information (NCBI) - Herbal Medicine Studies</strong><br>
+            Website: <a href="https://www.ncbi.nlm.nih.gov/" target="_blank">https://www.ncbi.nlm.nih.gov/</a><br>
+            Accessed: June 2025
+          </li>
           </ul>
         </div>
       </div>
