@@ -1,5 +1,5 @@
 <?php
-include("herbdb.php");
+include("Database/herbdb.php");
 
 $listQuery = "SELECT * FROM herblist";
 $listResult = executeQuery($listQuery);
@@ -136,14 +136,15 @@ $listResult = executeQuery($listQuery);
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body modal-body-content">
-           <p>Welcome to our Philippine Herbal Medicine website – your trusted source for reliable, research-based
+          <p>Welcome to our Philippine Herbal Medicine website – your trusted source for reliable, research-based
             information about local herbal plants and their natural healing benefits. This platform is dedicated to
             educating and promoting the rich tradition of herbal medicine in the Philippines, aiming to bridge ancestral
             wisdom with modern understanding.
           </p>
           <p>This website was proudly developed by second-year Diploma in Information Technology students
             from the Polytechnic University of the Philippines – Sto. Tomas Campus. Our team — John Adrian De Mesa,
-            Gwyneth Minor, Linel Martin Monta, Margarette Dela Rosa, and Jet Pitogo — created this project with the goal of making
+            Gwyneth Minor, Linel Martin Monta, Margarette Dela Rosa, and Jet Pitogo — created this project with the goal
+            of making
             knowledge about Filipino herbal medicine more accessible to the public. Through this initiative, we hope to
             contribute to the preservation of our cultural heritage and support the use of natural, plant-based remedies
             in daily health practices.
@@ -165,32 +166,33 @@ $listResult = executeQuery($listQuery);
         </div>
         <div class="modal-body modal-body-content">
           <p>Sources include the Department of Health - Philippines, Herbal Books, and Verified Online Databases.</p>
-            <ul>
-          <li>
-            <strong>Philippine Department of Health - Traditional and Alternative Health Care</strong><br>
-            Website: <a href="https://www.doh.gov.ph" target="_blank">https://www.doh.gov.ph</a><br>
-            Accessed: June 2025
-          </li>
-          <li>
-            <strong>PITAHC (Philippine Institute of Traditional and Alternative Health Care)</strong><br>
-            Website: <a href="https://pitahc.gov.ph" target="_blank">https://pitahc.gov.ph</a><br>
-            Accessed: June 2025
-          </li>
-          <li>
-            <strong>Quisumbing, E. (1978).</strong> <em>Medicinal Plants of the Philippines</em><br>
-            Katha Publishing Co.
-          </li>
-          <li>
-            <strong>World Health Organization (WHO) - Traditional Medicine</strong><br>
-            Website: <a href="https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine" target="_blank">
-              https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine</a><br>
-            Accessed: June 2025
-          </li>
-          <li>
-            <strong>National Center for Biotechnology Information (NCBI) - Herbal Medicine Studies</strong><br>
-            Website: <a href="https://www.ncbi.nlm.nih.gov/" target="_blank">https://www.ncbi.nlm.nih.gov/</a><br>
-            Accessed: June 2025
-          </li>
+          <ul>
+            <li>
+              <strong>Philippine Department of Health - Traditional and Alternative Health Care</strong><br>
+              Website: <a href="https://www.doh.gov.ph" target="_blank">https://www.doh.gov.ph</a><br>
+              Accessed: June 2025
+            </li>
+            <li>
+              <strong>PITAHC (Philippine Institute of Traditional and Alternative Health Care)</strong><br>
+              Website: <a href="https://pitahc.gov.ph" target="_blank">https://pitahc.gov.ph</a><br>
+              Accessed: June 2025
+            </li>
+            <li>
+              <strong>Quisumbing, E. (1978).</strong> <em>Medicinal Plants of the Philippines</em><br>
+              Katha Publishing Co.
+            </li>
+            <li>
+              <strong>World Health Organization (WHO) - Traditional Medicine</strong><br>
+              Website: <a href="https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine"
+                target="_blank">
+                https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine</a><br>
+              Accessed: June 2025
+            </li>
+            <li>
+              <strong>National Center for Biotechnology Information (NCBI) - Herbal Medicine Studies</strong><br>
+              Website: <a href="https://www.ncbi.nlm.nih.gov/" target="_blank">https://www.ncbi.nlm.nih.gov/</a><br>
+              Accessed: June 2025
+            </li>
           </ul>
         </div>
       </div>

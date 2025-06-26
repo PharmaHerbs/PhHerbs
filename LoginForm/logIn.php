@@ -1,5 +1,5 @@
 <?php
-include("../herbdb.php");
+include("../Database/herbdb.php");
 
 session_start();
 session_destroy();
@@ -108,7 +108,9 @@ if (isset($_POST['username'])) {
       <div class="col-md-6 d-flex justify-content-center align-items-center order-2 order-md-2">
         <div class="login-box">
           <?php if (!empty($error)): ?>
-            <div class="alert alert-danger"><? echo($error) ?></div>
+          <div class="alert alert-danger text-dark">
+            <?php echo $error; ?>
+          </div>
           <?php endif; ?>
           <form method="POST" action="">
             <div class="mb-4">
@@ -123,7 +125,7 @@ if (isset($_POST['username'])) {
               <button type="submit" class="btn btn-login">Log In</button>
             </div>
             <div class="d-grid">
-               <a href="../herbslist.php" class="text-white text-decoration-underline text-center mt-3">Back to Home</a>
+              <a href="../herbslist.php" class="text-white text-decoration-underline text-center mt-3">Back to Home</a>
             </div>
 
           </form>

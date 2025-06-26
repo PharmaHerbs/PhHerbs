@@ -1,5 +1,5 @@
 <?php
-include("../../herbdb.php");
+include("../../Database/herbdb.php");
 session_start();
 
 $username = $_SESSION['username'] ?? null;
@@ -22,9 +22,11 @@ $listResult = executeQuery($listQuery);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="website icon" href="img/logo.png">
     <title>Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             background: url('img/adminSide.png') no-repeat center center fixed;
@@ -71,8 +73,6 @@ $listResult = executeQuery($listQuery);
             margin: 20px;
             color: white;
         }
-
-        
     </style>
 </head>
 
@@ -98,26 +98,36 @@ $listResult = executeQuery($listQuery);
             <h4>Herbs List</h4>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 <?php while ($row = mysqli_fetch_assoc($listResult)) { ?>
-                    <div class="col">
-                        <div class="card h-100 border-dark shadow-sm rounded-5" >
-                            <img src="<?php echo $row['herbImg']; ?>" class="card-img-top" alt="<?php echo $row['herbName']; ?>" style="height: 65%; width: 100%; object-fit: cover;">
-                            <div class="card-body">
-                                <h5 class="card-title text-success">
-                                    <?php echo $row['herbName']; ?>
-                                    <small class="text-muted fst-italic">(<?php echo $row['herbLatin']; ?>)</small>
-                                </h5>
-                                <p><strong>Description:</strong> <?php echo $row['herbDesc']; ?></p>
-                                <p><strong>Benefits:</strong> <?php echo $row['herbBenefits']; ?></p>
-                                <p><strong>Usage Guide:</strong> <?php echo $row['herbGuide']; ?></p>
-                            </div>
+                <div class="col">
+                    <div class="card h-100 border-dark shadow-sm rounded-5">
+                        <img src="<?php echo $row['herbImg']; ?>" class="card-img-top"
+                            alt="<?php echo $row['herbName']; ?>" style="height: 65%; width: 100%; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title text-success">
+                                <?php echo $row['herbName']; ?>
+                                <small class="text-muted fst-italic">(
+                                    <?php echo $row['herbLatin']; ?>)
+                                </small>
+                            </h5>
+                            <p><strong>Description:</strong>
+                                <?php echo $row['herbDesc']; ?>
+                            </p>
+                            <p><strong>Benefits:</strong>
+                                <?php echo $row['herbBenefits']; ?>
+                            </p>
+                            <p><strong>Usage Guide:</strong>
+                                <?php echo $row['herbGuide']; ?>
+                            </p>
                         </div>
                     </div>
+                </div>
                 <?php } ?>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
