@@ -20,14 +20,14 @@ $listResult = executeQuery($listQuery);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="website icon" href="logoadmin.png">
+    <link rel="website icon" href="img/logo.png">
     <title>Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <style>
         html, body {
             height: 100%;
             margin: 0;
-            background: url('adminSide.png') no-repeat center center fixed;
+            background: url('img/adminSide.png') no-repeat center center fixed;
             background-size: cover;
             font-family: Arial, sans-serif;
         }
@@ -71,6 +71,8 @@ $listResult = executeQuery($listQuery);
             margin: 20px;
             color: white;
         }
+
+        
     </style>
 </head>
 
@@ -79,7 +81,7 @@ $listResult = executeQuery($listQuery);
     <div class="container-fluid banner d-flex align-items-center">
         <div class="row w-100">
             <div class="col d-flex align-items-center justify-content-center gap-2">
-                <img src="newadminlogo.png" alt="Admin Logo" style="height: 40px;">
+                <img src="img/logoadmin.png" alt="Admin Logo" style="height: 40px;">
                 <h3 class="m-0 text-white">PharmaHerbs</h3>
             </div>
         </div>
@@ -88,8 +90,8 @@ $listResult = executeQuery($listQuery);
     <div class="wrapper">
         <div class="sidebar">
             <h5 class="text-center">Admin</h5>
-            <a href="#">Dashboard</a>
-            <a href="../index.php">Logout</a>
+            <a href="admin.php">Dashboard</a>
+            <a href="../logIn.php">Logout</a>
         </div>
 
         <div class="content">
@@ -97,8 +99,8 @@ $listResult = executeQuery($listQuery);
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 <?php while ($row = mysqli_fetch_assoc($listResult)) { ?>
                     <div class="col">
-                        <div class="card h-100 border-dark shadow-sm">
-                            <img src="<?php echo $row['herbImg']; ?>" class="card-img-top" alt="<?php echo $row['herbName']; ?>" style="height: 200px; object-fit: cover;">
+                        <div class="card h-100 border-dark shadow-sm rounded-5" >
+                            <img src="<?php echo $row['herbImg']; ?>" class="card-img-top" alt="<?php echo $row['herbName']; ?>" style="height: 65%; width: 100%; object-fit: cover;">
                             <div class="card-body">
                                 <h5 class="card-title text-success">
                                     <?php echo $row['herbName']; ?>

@@ -91,7 +91,7 @@
     <main class="hero-section" id="heroSection">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-    <img src="img/welcomepagelogo.png" class="mx-auto mb-4 w-32 md:w-40 lg:w-48">
+    <img src="img/logo.png" class="mx-auto mb-5 w-32 md:w-40 lg:w-48">
     <h1 class="welcome-text">Welcome to PharmaHerbs</h1>
     <p class="quote-text">
         "Nature holds the cure discover the healing power of herbs, where ancient wisdom meets modern wellness."

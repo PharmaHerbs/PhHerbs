@@ -11,11 +11,11 @@ if (isset($_POST['username'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  $loginquery = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-  $loginresult = executeQuery($loginquery);
+  $logInquery = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+  $logInresult = executeQuery($logInquery);
 
-  if (mysqli_num_rows($loginresult) > 0) {
-    while ($row = mysqli_fetch_assoc($loginresult)) {
+  if (mysqli_num_rows($logInresult) > 0) {
+    while ($row = mysqli_fetch_assoc($logInresult)) {
       $_SESSION['username'] = $row['username'];
       $_SESSION['password'] = $row['password'];
     }
@@ -35,6 +35,7 @@ if (isset($_POST['username'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login Page</title>
+  <link rel="website icon" href="img/logo.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <style>
@@ -65,7 +66,7 @@ if (isset($_POST['username'])) {
     }
 
     .login-box {
-      background: rgba(137, 166, 79, 0.4);
+      background: rgba(190, 223, 123, 0.64);
       border-radius: 15px;
       padding: 40px 50px;
       backdrop-filter: blur(10px);
@@ -101,7 +102,7 @@ if (isset($_POST['username'])) {
     <div class="row justify-content-center align-items-center w-100">
 
       <div class="col-md-6 d-flex justify-content-center align-items-center order-1 order-md-1 mb-4 mb-md-0">
-        <img src="img/pharmaHerbLogo.png" alt="Logo" class="img-fluid desktop-logo">
+        <img src="img/loginlogo.png" alt="Logo" class="img-fluid desktop-logo">
       </div>
 
       <div class="col-md-6 d-flex justify-content-center align-items-center order-2 order-md-2">

@@ -136,8 +136,20 @@ $listResult = executeQuery($listQuery);
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body modal-body-content">
-          <p>Welcome to our Philippine Herbal Medicine website – your trusted source for reliable, research-based
-            information about local herbal plants and their natural healing benefits...</p>
+           <p>Welcome to our Philippine Herbal Medicine website – your trusted source for reliable, research-based
+            information about local herbal plants and their natural healing benefits. This platform is dedicated to
+            educating and promoting the rich tradition of herbal medicine in the Philippines, aiming to bridge ancestral
+            wisdom with modern understanding.
+          </p>
+          <p>This website was proudly developed by second-year Diploma in Information Technology students
+            from the Polytechnic University of the Philippines – Sto. Tomas Campus. Our team — John Adrian De Mesa,
+            Gwyneth Minor, Linel Martin Monta, Margarette Dela Rosa, and Jet Pitogo — created this project with the goal of making
+            knowledge about Filipino herbal medicine more accessible to the public. Through this initiative, we hope to
+            contribute to the preservation of our cultural heritage and support the use of natural, plant-based remedies
+            in daily health practices.
+          </p>
+          <p>Thank you for visiting and joining us in embracing the healing power of nature.
+          </p>
         </div>
       </div>
     </div>
