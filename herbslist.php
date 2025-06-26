@@ -55,13 +55,13 @@ $listResult = executeQuery($listQuery);
     </div>
   </nav>
 
- <div class="container search-bar-container" id="searchBarContainer" style="display: none;">
-  <form class="d-flex justify-content-center w-100">
-    <input class="form-control w-100 me-2" type="search" placeholder="Search for herbs..." aria-label="Search"
-      id="searchInput" style="max-width: 700px;" />
-    <button class="btn btn-success" type="submit">Search</button>
-  </form>
-</div>
+  <div class="container search-bar-container" id="searchBarContainer" style="display: none;">
+    <form class="d-flex justify-content-center w-100">
+      <input class="form-control w-100 me-2" type="search" placeholder="Search for herbs..." aria-label="Search"
+        id="searchInput" style="max-width: 700px;" />
+      <button class="btn btn-success" type="submit">Search</button>
+    </form>
+  </div>
 
 
   <div class="container my-4" id="cardsContainer">
@@ -133,11 +133,24 @@ $listResult = executeQuery($listQuery);
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">About Us</h5>
+          <h5 class="modal-title text-center">About Us</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body modal-body-content">
-          <p>We are a group of herbal medicine enthusiasts passionate about Filipino traditional herbs.</p>
+          <p>Welcome to our Philippine Herbal Medicine website – your trusted source for reliable, research-based
+            information about local herbal plants and their natural healing benefits. This platform is dedicated to
+            educating and promoting the rich tradition of herbal medicine in the Philippines, aiming to bridge ancestral
+            wisdom with modern understanding.
+          </p>
+          <p>This website was proudly developed by second-year Bachelor of Science in Information Technology students
+            from the Polytechnic University of the Philippines – Sto. Tomas Campus. Our team — John Adrian De Mesa,
+            Gwyneth Minor, Linel Martin Monta, Margareth, and Jet Pitogo — created this project with the goal of making
+            knowledge about Filipino herbal medicine more accessible to the public. Through this initiative, we hope to
+            contribute to the preservation of our cultural heritage and support the use of natural, plant-based remedies
+            in daily health practices.
+          </p>
+          <p>Thank you for visiting and joining us in embracing the healing power of nature.
+          </p>
         </div>
       </div>
     </div>
@@ -152,6 +165,32 @@ $listResult = executeQuery($listQuery);
         </div>
         <div class="modal-body modal-body-content">
           <p>Sources include the Department of Health - Philippines, Herbal Books, and Verified Online Databases.</p>
+        <ul>
+          <li>
+            <strong>Philippine Department of Health - Traditional and Alternative Health Care</strong><br>
+            Website: <a href="https://www.doh.gov.ph" target="_blank">https://www.doh.gov.ph</a><br>
+            Accessed: June 2025
+          </li>
+          <li>
+            <strong>PITAHC (Philippine Institute of Traditional and Alternative Health Care)</strong><br>
+            Website: <a href="https://pitahc.gov.ph" target="_blank">https://pitahc.gov.ph</a><br>
+            Accessed: June 2025
+          </li>
+          <li>
+            <strong>Quisumbing, E. (1978).</strong> <em>Medicinal Plants of the Philippines</em><br>
+            Katha Publishing Co.
+          </li>
+          <li>
+            <strong>World Health Organization (WHO) - Traditional Medicine</strong><br>
+            Website: <a href="https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine" target="_blank">
+              https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine</a><br>
+            Accessed: June 2025
+          </li>
+          <li>
+            <strong>National Center for Biotechnology Information (NCBI) - Herbal Medicine Studies</strong><br>
+            Website: <a href="https://www.ncbi.nlm.nih.gov/" target="_blank">https://www.ncbi.nlm.nih.gov/</a><br>
+            Accessed: June 2025
+          </li>
         </div>
       </div>
     </div>

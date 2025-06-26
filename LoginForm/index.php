@@ -107,7 +107,7 @@ if (isset($_POST['username'])) {
       <div class="col-md-6 d-flex justify-content-center align-items-center order-2 order-md-2">
         <div class="login-box">
           <?php if (!empty($error)): ?>
-            <div class="alert alert-danger"><?= echo($error) ?></div>
+            <div class="alert alert-danger"><? echo($error) ?></div>
           <?php endif; ?>
           <form method="POST" action="">
             <div class="mb-4">
