@@ -25,14 +25,22 @@ $listResult = executeQuery($listQuery);
     <title>Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <style>
-        body {
-            min-height: 100vh;
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            height: calc(100% - 70px); 
         }
 
         .sidebar {
-            height: 100vh;
+            width: 220px;
             background-color: #343a40;
             color: white;
+            flex-shrink: 0;
+            padding-top: 1rem;
         }
 
         .sidebar a {
@@ -50,18 +58,21 @@ $listResult = executeQuery($listQuery);
             background-color: #6c757d;
             color: white;
             padding: 15px;
+            height: 70px;
         }
 
         .content {
+            flex-grow: 1;
             padding: 20px;
+            overflow-y: auto;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container-fluid banner">
-        <div class="row">
+    <div class="container-fluid banner d-flex align-items-center">
+        <div class="row w-100">
             <div class="col d-flex align-items-center justify-content-center gap-2">
                 <img src="newadminlogo.png" alt="Admin Logo" style="height: 40px;">
                 <h3 class="m-0 text-white">PharmaHerbs</h3>
@@ -69,36 +80,33 @@ $listResult = executeQuery($listQuery);
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 sidebar">
-                <h5 class="text-center mt-3">Admin</h5>
-                <a href="#">Dashboard</a>
-                <a href="../index.php">Logout</a>
-            </div>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h5 class="text-center">Admin</h5>
+            <a href="#">Dashboard</a>
+            <a href="../index.php">Logout</a>
+        </div>
 
-            <div class="col-md-10 content">
-                <h4>Herbs List</h4>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    <?php while ($row = mysqli_fetch_assoc($listResult)) { ?>
-                        <div class="col">
-                            <div class="card h-100 border-dark shadow-sm">
-                                <img src="<?php echo $row['herbImg']; ?>" class="card-img-top" alt="<?php echo $row['herbName']; ?>" style="height: 200px; object-fit: cover;">
-                                <div class="card-body">
-                                    <h5 class="card-title text-success">
-                                        <?php echo $row['herbName']; ?>
-                                        <small class="text-muted fst-italic">(<?php echo $row['herbLatin']; ?>)</small>
-                                    </h5>
-                                    <p><strong>Description:</strong> <?php echo $row['herbDesc']; ?></p>
-                                    <p><strong>Benefits:</strong> <?php echo $row['herbBenefits']; ?></p>
-                                    <p><strong>Usage Guide:</strong> <?php echo $row['herbGuide']; ?></p>
-                                </div>
+        <div class="content">
+            <h4>Herbs List</h4>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <?php while ($row = mysqli_fetch_assoc($listResult)) { ?>
+                    <div class="col">
+                        <div class="card h-100 border-dark shadow-sm">
+                            <img src="<?php echo $row['herbImg']; ?>" class="card-img-top" alt="<?php echo $row['herbName']; ?>" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">
+                                    <?php echo $row['herbName']; ?>
+                                    <small class="text-muted fst-italic">(<?php echo $row['herbLatin']; ?>)</small>
+                                </h5>
+                                <p><strong>Description:</strong> <?php echo $row['herbDesc']; ?></p>
+                                <p><strong>Benefits:</strong> <?php echo $row['herbBenefits']; ?></p>
+                                <p><strong>Usage Guide:</strong> <?php echo $row['herbGuide']; ?></p>
                             </div>
                         </div>
-                    <?php } ?>
-                </div>
+                    </div>
+                <?php } ?>
             </div>
-
         </div>
     </div>
 
