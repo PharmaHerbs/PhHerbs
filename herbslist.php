@@ -54,7 +54,7 @@ $herbs = mysqli_fetch_all($listResult, MYSQLI_ASSOC);
 
   <div class="container my-4" id="cardsContainer">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-      <?php foreach ($herbs as $row): ?>
+      <?php foreach ($herbs as $row) { ?>
         <div class="col">
           <div class="card-custom">
             <img src="<?= $row['herbImg'] ?>" alt="<?= $row['herbName'] ?>" class="img-fluid">
@@ -82,7 +82,7 @@ $herbs = mysqli_fetch_all($listResult, MYSQLI_ASSOC);
             </div>
           </div>
         </div>
-      <?php endforeach; ?>
+      <?php } ?>
     </div>
   </div>
 

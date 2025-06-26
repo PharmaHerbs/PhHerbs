@@ -1,3 +1,24 @@
+<?php
+// login.php
+session_start();
+
+// Hardcoded credentials
+$correctUsername = "admin";
+$correctPassword = "admin123";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"] ?? '';
+    $password = $_POST["password"] ?? '';
+
+    if ($username === $correctUsername && $password === $correctPassword) {
+        $_SESSION['loggedin'] = true;
+        header("Location: ../admin/index.php"); // Redirect to admin dashboard
+        exit();
+    } else {
+        $error = "Invalid username or password.";
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -35,7 +56,7 @@
     }
 
     .login-box {
-      background: rgba(137, 166, 79, 0.4); 
+      background: rgba(137, 166, 79, 0.4);
       border-radius: 15px;
       padding: 40px 50px;
       backdrop-filter: blur(10px);
@@ -76,14 +97,17 @@
 
       <div class="col-md-6 d-flex justify-content-center align-items-center order-2 order-md-2">
         <div class="login-box">
-          <form>
+          <?php if (!empty($error)): ?>
+            <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+          <?php endif; ?>
+          <form method="POST" action="">
             <div class="mb-4">
-              <label for="email" class="form-label text-dark">Username</label>
-              <input type="text" class="form-control" id="email" placeholder="username">
+              <label for="username" class="form-label text-dark">Username</label>
+              <input type="text" name="username" id="username" class="form-control" placeholder="username" required>
             </div>
             <div class="mb-5">
               <label for="password" class="form-label text-dark">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="password">
+              <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-login">Log In</button>
