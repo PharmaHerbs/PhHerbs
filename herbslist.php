@@ -406,7 +406,7 @@
     renderHerbs(herbs);
 
     // Show both herb list and search bar on page load
-    searchBarContainer.style.display = 'block';
+    searchBarContainer.style.display = 'none';
     cardsContainer.style.display = 'flex';
 
     searchIconButton.addEventListener('click', function () {
