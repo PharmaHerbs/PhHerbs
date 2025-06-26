@@ -1,219 +1,42 @@
+<?php
+include("herbdb.php");
+
+$listQuery = "SELECT * FROM herblist";
+$listResult = executeQuery($listQuery);
+$herbs = mysqli_fetch_all($listResult, MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="website icon" href="img/logo.png">
-    <title>Pharma Herbs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            background: linear-gradient(to right top, #a8e0b1, #90d3a5, #78c699, #5db98e, #3fac82);
-            font-family: "Inter", sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden; 
-        }
-
-        .background-shape {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(150px);
-            z-index: -1;
-        }
-
-        .shape1 {
-            width: 400px;
-            height: 400px;
-            background: #90d3a5;
-            top: -100px;
-            left: -100px;
-        }
-
-        .shape2 {
-            width: 500px;
-            height: 500px;
-            background: #3fac82;
-            bottom: -150px;
-            right: -150px;
-        }
-
-
-        .navbar-green {
-            background-color: rgba(0, 77, 18, 0.5); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .card-custom {
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .card-custom img {
-            max-width: 100%;
-            height: 180px;
-            object-fit: contain;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 5px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .card-custom .card-body {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-custom .card-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #002d09; 
-        }
-
-        .card-custom .card-text {
-            font-size: 0.9em;
-            color: #004d12; 
-            flex-grow: 1;
-        }
-
-        .search-bar-container {
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            display: none;
-            text-align: center;
-        }
-
-     
-        .offcanvas, .modal-content {
-            background: rgba(240, 255, 240, 0.7); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #002d09; 
-        }
-
-        .offcanvas-header, .modal-header {
-            border-bottom: 1px solid rgba(0, 77, 18, 0.2);
-        }
-
-        .offcanvas-title, .modal-title {
-            font-weight: bold;
-            color: #004d12;
-        }
-
-        .list-group-item {
-            background-color: transparent;
-            border: none;
-            padding: 1rem 1.5rem;
-        }
-
-        .list-group-item a {
-            font-size: 1.1rem;
-            color: #004d12;
-            font-weight: 500;
-        }
-
-        .list-group-item a:hover {
-            color: #002d09;
-        }
-
-        .modal-body-content {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .modal-body-content h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #004d12;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-body-content p {
-            font-size: 1.125rem;
-            line-height: 1.8;
-            color: #002d09;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-        
-        .modal-body p {
-            color: #002d09;
-        }
-
-        .modal-body-content .team-name {
-            font-weight: 600;
-            color: #3fac82; 
-        }
-
-        .modal-body img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 80%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .modal-body p strong {
-            font-weight: bold;
-            color: #004d12;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="website icon" href="img/logo.png">
+  <title>Pharma Herbs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-   <!-- Background Shape Elements -->
   <div class="background-shape shape1"></div>
   <div class="background-shape shape2"></div>
 
   <nav class="navbar navbar-expand-lg navbar-green sticky-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="img/logo.png" width="40" height="40" class="d-inline-block align-text-top me-2">
-        <span class="h4 mb-0" style="color: white;">Pharma Herbs</span>
+      <a class="navbar-brand d-flex align-items-center" href="index.php">
+        <img src="img/logo.png" width="40" height="40" class="me-2">
+        <span class="h4 mb-0 text-white">Pharma Herbs</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">
-          <!-- Lists button removed -->
           <li class="nav-item me-3">
-            <button class="btn btn-outline-light rounded-circle" id="searchIconButton">
-              <i class="fas fa-search"></i>
-            </button>
+            <button class="btn btn-outline-light rounded-circle" id="searchIconButton"><i class="fas fa-search"></i></button>
           </li>
           <li class="nav-item">
-            <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">
               <i class="fas fa-bars"></i>
             </button>
           </li>
@@ -222,217 +45,102 @@
     </div>
   </nav>
 
-  <div class="container search-bar-container" id="searchBarContainer">
+  <div class="container search-bar-container" id="searchBarContainer" style="display: none;">
     <form class="d-flex justify-content-center">
-      <input class="form-control me-2" type="search" placeholder="Search for herbs..." aria-label="Search"
-        style="max-width: 500px;" id="searchInput" />
+      <input class="form-control me-2" type="search" placeholder="Search for herbs..." aria-label="Search" style="max-width: 500px;" id="searchInput" />
       <button class="btn btn-success" type="submit">Search</button>
     </form>
   </div>
 
   <div class="container my-4" id="cardsContainer">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="herb-cards">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <?php foreach ($herbs as $row): ?>
+        <div class="col">
+          <div class="card-custom">
+            <img src="<?= $row['herbImg'] ?>" alt="<?= $row['herbName'] ?>" class="img-fluid">
+            <div class="card-body">
+              <h5 class="card-title"><?= $row['herbName'] ?></h5>
+              <p class="card-text"><?= $row['herbDesc'] ?></p>
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal<?= $row['herbID'] ?>">More Info</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="modal<?= $row['herbID'] ?>" tabindex="-1" aria-labelledby="modalLabel<?= $row['herbID'] ?>" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel<?= $row['herbID'] ?>"><?= $row['herbName'] ?> (<?= $row['herbLatin'] ?>)</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body modal-body-content">
+                <img src="<?= $row['herbImg'] ?>" alt="<?= $row['herbName'] ?>">
+                <p><strong>Description:</strong> <?= $row['herbDesc'] ?></p>
+                <p><strong>Benefits:</strong> <?= $row['herbBenefits'] ?></p>
+                <p><strong>Usage Guide:</strong> <?= $row['herbGuide'] ?></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
     </div>
   </div>
 
-  <div id="herb-modals"></div>
-
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-        aria-label="Close"></button>
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><a href="index.php" class="text-decoration-none">Home</a></li>
-        <li class="list-group-item"><a href="#" class="text-decoration-none" data-bs-toggle="modal"
-            data-bs-target="#aboutUsModal">About Us</a></li>
-        <li class="list-group-item"><a href="#" class="text-decoration-none" data-bs-toggle="modal"
-            data-bs-target="#referencesModal">References</a></li>
+        <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#aboutUsModal">About Us</a></li>
+        <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#referencesModal">References</a></li>
         <li class="list-group-item"><a href="LoginForm/index.php" class="text-decoration-none">Admin</a></li>
       </ul>
     </div>
   </div>
 
-  <!-- About Us Modal -->
-  <div class="modal fade" id="aboutUsModal" tabindex="-1" aria-labelledby="aboutUsModalLabel" aria-hidden="true">
+  <div class="modal fade" id="aboutUsModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="aboutUsModalLabel">About Us</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-            aria-label="Close"></button>
+          <h5 class="modal-title">About Us</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body modal-body-content">
-          <!-- [Your About Us modal content] -->
+          <p>We are a group of herbal medicine enthusiasts passionate about Filipino traditional herbs.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- References Modal -->
-  <div class="modal fade" id="referencesModal" tabindex="-1" aria-labelledby="referencesModalLabel" aria-hidden="true">
+  <div class="modal fade" id="referencesModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="referencesModalLabel">References</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-            aria-label="Close"></button>
+          <h5 class="modal-title">References</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body modal-body-content">
-          <!-- [Your References modal content] -->
+          <p>Sources include the Department of Health - Philippines, Herbal Books, and Verified Online Databases.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-    crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script>
-    const herbs = [
-      {
-        id: "ampalaya",
-        name: "Ampalaya",
-        latin: "Momordica charantia",
-        short: "Known for its anti-diabetic properties.",
-        long: "Ampalaya, or bitter melon...",
-        remedies: "Lowers blood sugar levels...",
-        benefits: "Boosts immunity...",
-        img: "img/ampalaya.png"
-      },
-      {
-        id: "garlic",
-        name: "Garlic",
-        latin: "Allium sativum",
-        short: "Garlic is known as nature's antibiotic.",
-        long: "Its juices inhibit the growth...",
-        remedies: "Effective against fungal and viral infections...",
-        benefits: "Boosts immune system...",
-        img: "img/garlic.png"
-      },
-      {
-        id: "ginger",
-        name: "Ginger",
-        latin: "Zingiber officinale",
-        short: "Commonly used for its anti-inflammatory and digestive benefits.",
-        long: "Ginger is a widely used spice...",
-        remedies: "Alleviates nausea...",
-        benefits: "Powerful anti-inflammatory...",
-        img: "img/ginger.png"
-      },
-      {
-        id: "oregano",
-        name: "Oregano",
-        latin: "Origanum vulgare",
-        short: "Known herbal medicine for its strong anti-oxidant properties.",
-        long: "Its anti-bacterial properties...",
-        remedies: "Treats reproductive tract infections...",
-        benefits: "Strong antioxidant properties...",
-        img: "img/Oregano.png"
-      },
-      {
-        id: "akapulko",
-        name: "Akapulko",
-        latin: "Cassia alata",
-        short: "Used for treating fungal skin infections.",
-        long: "Akapulko, or Senna alata, is a medicinal shrub...",
-        remedies: "Treats fungal skin infections...",
-        benefits: "Natural antifungal agent...",
-        img: "img/akapulko.png"
-      },
-      {
-        id: "bayabas",
-        name: "Bayabas",
-        latin: "Psidium guajava",
-        short: "Traditionally used as antiseptic and for diarrhea.",
-        long: "Bayabas or guava is rich in vitamin C...",
-        remedies: "Treats wounds, reduces inflammation...",
-        benefits: "Rich in Vitamin C and antioxidants...",
-        img: "img/bayabas.png"
-      }
-    ];
-
-    const cardsContainer = document.getElementById("herb-cards");
-    const modalsContainer = document.getElementById("herb-modals");
-    const searchIconButton = document.getElementById('searchIconButton');
     const searchBarContainer = document.getElementById('searchBarContainer');
+    const cardsContainer = document.getElementById('cardsContainer');
+    const searchIconButton = document.getElementById('searchIconButton');
     const searchInput = document.getElementById('searchInput');
 
-    function renderHerbs(filteredHerbs) {
-      cardsContainer.innerHTML = '';
-      modalsContainer.innerHTML = '';
-
-      filteredHerbs.forEach(herb => {
-        const cardCol = document.createElement('div');
-        cardCol.className = 'col';
-        cardCol.innerHTML = `
-          <div class="card-custom">
-              <img src="${herb.img}" class="img-fluid" alt="${herb.name}">
-              <div class="card-body">
-                  <h5 class="card-title">${herb.name}</h5>
-                  <p class="card-text">${herb.short}</p>
-                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#${herb.id}Modal">More Info</button>
-              </div>
-          </div>`;
-        cardsContainer.appendChild(cardCol);
-
-        const modalDiv = document.createElement('div');
-        modalDiv.className = 'modal fade';
-        modalDiv.id = `${herb.id}Modal`;
-        modalDiv.setAttribute('tabindex', '-1');
-        modalDiv.setAttribute('aria-labelledby', `${herb.id}Label`);
-        modalDiv.setAttribute('aria-hidden', 'true');
-        modalDiv.innerHTML = `
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="${herb.id}Label">${herb.name} (${herb.latin})</h5>
-                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                      <img src="${herb.img}" class="img-fluid mb-3" alt="${herb.name}">
-                      <p>${herb.long}</p>
-                      ${herb.remedies ? `<p><strong>Remedies:</strong> ${herb.remedies}</p>` : ''}
-                      ${herb.benefits ? `<p><strong>Benefits:</strong> ${herb.benefits}</p>` : ''}
-                  </div>
-              </div>
-          </div>`;
-        modalsContainer.appendChild(modalDiv);
-      });
-    }
-
-    renderHerbs(herbs);
-
-    // Show both herb list and search bar on page load
-    searchBarContainer.style.display = 'none';
-    cardsContainer.style.display = 'flex';
-
     searchIconButton.addEventListener('click', function () {
-      const isSearchHidden = searchBarContainer.style.display === 'block';
-      searchBarContainer.style.display = isSearchHidden ? 'none' : 'block';
-      if (isSearchHidden) {
-        searchInput.focus();
-      } else {
-        searchInput.value = '';
-        renderHerbs(herbs);
-      }
-    });
-
-    searchInput.addEventListener('input', function () {
-      const searchTerm = searchInput.value.toLowerCase();
-      if (searchTerm) {
-        const filteredHerbs = herbs.filter(herb =>
-          herb.name.toLowerCase().includes(searchTerm) ||
-          herb.latin.toLowerCase().includes(searchTerm) ||
-          herb.short.toLowerCase().includes(searchTerm) ||
-          herb.long.toLowerCase().includes(searchTerm)
-        );
-        renderHerbs(filteredHerbs);
-      } else {
-        renderHerbs(herbs);
-      }
+      const isVisible = searchBarContainer.style.display === 'block';
+      searchBarContainer.style.display = isVisible ? 'none' : 'block';
+      if (!isVisible) searchInput.focus();
+      else searchInput.value = '';
     });
 
     searchBarContainer.querySelector('form').addEventListener('submit', function (event) {
@@ -440,5 +148,4 @@
     });
   </script>
 </body>
-
 </html>

@@ -59,7 +59,7 @@
                 <h5 class="text-center mt-3">Admin</h5>
                 <a href="#">Dashboard</a>
                 <a href="#">Users</a>
-                <a href="#">Logout</a>
+                <a href="../LoginForm/index.php">Logout</a>
             </div>
 
             <div class="col-md-10 content">
