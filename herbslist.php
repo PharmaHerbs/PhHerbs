@@ -142,7 +142,7 @@ $listResult = executeQuery($listQuery);
             educating and promoting the rich tradition of herbal medicine in the Philippines, aiming to bridge ancestral
             wisdom with modern understanding.
           </p>
-          <p>This website was proudly developed by second-year Bachelor of Science in Information Technology students
+          <p>This website was proudly developed by second-year Diploma in Information Technology students
             from the Polytechnic University of the Philippines – Sto. Tomas Campus. Our team — John Adrian De Mesa,
             Gwyneth Minor, Linel Martin Monta, Margareth, and Jet Pitogo — created this project with the goal of making
             knowledge about Filipino herbal medicine more accessible to the public. Through this initiative, we hope to
@@ -218,10 +218,11 @@ $listResult = executeQuery($listQuery);
       showSearchBtn.style.display = "inline-block";
     }
 
-
+    
     searchBarContainer.querySelector('form').addEventListener('submit', function (event) {
       event.preventDefault();
     });
+    
   </script>
 </body>
 
