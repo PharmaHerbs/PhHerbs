@@ -6,7 +6,7 @@ $username = $_SESSION['username'] ?? null;
 $password = $_SESSION['password'] ?? null;
 
 if (!isset($username)) {
-    header("Location: ../index.php");
+    header("Location: ../logIn.php");
     exit();
 }
 
