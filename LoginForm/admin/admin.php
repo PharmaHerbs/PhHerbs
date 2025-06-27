@@ -81,7 +81,7 @@ $listResult = executeQuery($listQuery);
     <div class="container-fluid banner d-flex align-items-center">
         <div class="row w-100">
             <div class="col d-flex align-items-center justify-content-center gap-2">
-                <img src="img/logoadmin.png" alt="Admin Logo" style="height: 40px;">
+                <img src="img/logo.png" alt="Admin Logo" style="height: 40px;">
                 <h3 class="m-0 text-white">PharmaHerbs</h3>
             </div>
         </div>
