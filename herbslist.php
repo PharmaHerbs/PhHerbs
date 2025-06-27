@@ -26,7 +26,7 @@ $listResult = executeQuery($listQuery);
   <nav class="navbar navbar-expand-lg navbar-green sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.php">
-        <img src="img/logo.png" width="40" height="40" class="me-2">
+        <img src="img/navlogo.png" width="40" height="40" class="me-2">
         <span class="h4 mb-0 text-white">Pharma Herbs</span>
       </a>
       <div class="d-flex ms-auto align-items-center">
@@ -118,7 +118,7 @@ $listResult = executeQuery($listQuery);
         <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#aboutUsModal">About Us</a></li>
         <li class="list-group-item"><a href="#" data-bs-toggle="modal" data-bs-target="#referencesModal">References</a>
         </li>
-        <li class="list-group-item"><a href="LoginForm/logIn.php" class="text-decoration-none">Admin</a></li>
+        <li class="list-group-item"><a href="LoginForm/index.php" class="text-decoration-none">Admin</a></li>
       </ul>
     </div>
   </div>

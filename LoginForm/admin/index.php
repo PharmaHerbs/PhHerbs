@@ -6,7 +6,7 @@ $username = $_SESSION['username'] ?? null;
 $password = $_SESSION['password'] ?? null;
 
 if (!isset($username)) {
-    header("Location: ../logIn.php");
+    header("Location: ../index.php");
     exit();
 }
 
@@ -81,7 +81,7 @@ $listResult = executeQuery($listQuery);
     <div class="container-fluid banner d-flex align-items-center">
         <div class="row w-100">
             <div class="col d-flex align-items-center justify-content-center gap-2">
-                <img src="img/logo.png" alt="Admin Logo" style="height: 40px;">
+                <img src="img/navlogo.png" alt="Admin Logo" style="height: 40px;">
                 <h3 class="m-0 text-white">PharmaHerbs</h3>
             </div>
         </div>
@@ -91,7 +91,7 @@ $listResult = executeQuery($listQuery);
         <div class="sidebar">
             <h5 class="text-center">Admin</h5>
             <a href="admin.php">Dashboard</a>
-            <a href="../logIn.php">Logout</a>
+            <a href="../index.php">Logout</a>
         </div>
 
         <div class="content">
