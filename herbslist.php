@@ -29,26 +29,22 @@ $listResult = executeQuery($listQuery);
         <img src="img/logo.png" width="40" height="40" class="me-2">
         <span class="h4 mb-0 text-white">Pharma Herbs</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item me-3">
-            <button class="btn btn-outline-light rounded-circle" id="showSearchBtn" onclick="showSearchBar()">
-              <i class="fas fa-search"></i>
-            </button>
-            <button class="btn btn-outline-light rounded-circle" id="hideSearchBtn" onclick="hideSearchBar()"
-              style="display: none;">
-              <i class="fas fa-times"></i>
-            </button>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight">
-              <i class="fas fa-bars"></i>
-            </button>
-          </li>
+      <div class="d-flex ms-auto align-items-center">
+        <li class="nav-item me-3">
+          <button class="btn btn-outline-light rounded-circle" id="showSearchBtn" onclick="showSearchBar()">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="btn btn-outline-light rounded-circle" id="hideSearchBtn" onclick="hideSearchBar()"
+            style="display: none;">
+            <i class="fas fa-times"></i>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight">
+            <i class="fas fa-bars"></i>
+          </button>
+        </li>
         </ul>
       </div>
     </div>
