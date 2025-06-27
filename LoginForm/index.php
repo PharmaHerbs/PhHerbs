@@ -46,7 +46,7 @@ if (isset($_POST['username'])) {
       background-repeat: no-repeat;
       min-height: 100vh;
       margin: 0;
-  
+    backdrop-filter: blur(7px);  
     }
 
     .login-container {
